@@ -88,7 +88,7 @@ async function autorecipe() {
                 newitem.teg = tag1
                 return newitem
             })
-        }else{
+        } else {
             cat1 = []
         }
         if (recipe2) {
@@ -98,7 +98,7 @@ async function autorecipe() {
                 newitem.teg = tag2
                 return newitem
             })
-        }else{
+        } else {
             cat2 = []
         }
 
@@ -133,21 +133,132 @@ async function autorecipe() {
     }
 }
 autorecipe()
-document.querySelector('body').addEventListener('click', async function(event){
-   var button = event.target.closest('button')
-    if(button){
-       var cd = button.closest('article')
-       var id = cd.id
-       console.log(id)
-       try{
-        const rec = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-        var rec1 = await rec.json()
-        console.log(rec1)
-       }catch(error){
-        console.log(error)
-       }
+document.querySelector('body').addEventListener('click', async function (event) {
+    var button = event.target.closest('button')
+    if (button) {
+        var cd = button.closest('article')
+        var id = cd.id
+        console.log(id)
+        try {
+            const rec = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+            var rec1 = await rec.json()
+            console.log(rec1)
+            var finalrec = rec1.meals.map(function (recipe) {
+                return `
+            <section class="recipe-modal">
+
+          <!-- Close -->
+          <button class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <!-- Like -->
+          <button class="like-btn">
+            <i class="fa-solid fa-heart"></i>
+            <span>1.2k</span>
+          </button>
+
+          <!-- LEFT -->
+          <div class="modal-left">
+            <img src="${recipe.strMealThumb}">
+            <div class="image-overlay">
+              <span class="category-badge">${recipe.srt}</span>
+              <h1 class="recipe-title">${recipe.strMeal}</h1>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="modal-right">
+
+            <!-- STATS -->
+            <div class="stats-row">
+              <div><i class="fa-regular fa-clock"></i> 45 Min</div>
+              <div><i class="fa-solid fa-fire"></i> 520 kcal</div>
+              <div><i class="fa-solid fa-chart-simple"></i> Medium</div>
+            </div>
+
+            <!-- INGREDIENTS -->
+            <section class="section ingredients-section">
+              <h2>Ingredients</h2>
+
+              <div class="ingredients-scroll">
+                <ul class="ingredients">
+                  <li><span>Chicken</span><span>500g</span></li>
+                  <li><span>Butter</span><span>3 tbsp</span></li>
+                  <li><span>Cream</span><span>1 cup</span></li>
+                  <li><span>Tomato Puree</span><span>200g</span></li>
+                  <li><span>Spices</span><span>to taste</span></li>
+
+                  <!-- Test ke liye extra -->
+                  <li><span>Garlic</span><span>6 cloves</span></li>
+                  <li><span>Ginger</span><span>2 inch</span></li>
+                  <li><span>Onion</span><span>2 large</span></li>
+                  <li><span>Oil</span><span>3 tbsp</span></li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- INSTRUCTIONS -->
+            <section class="section">
+              <h2>Instructions</h2>
+              <p class="instructions">
+                Heat butter in a pan and sauté spices until aromatic. Add chicken and cook until
+                lightly browned. Pour in tomato puree and simmer gently. Stir in cream and cook
+                until the sauce thickens beautifully.
+              </p>
+            </section>
+
+            <!-- ACTION BUTTONS (BIG & PREMIUM) -->
+            <div class="action-bar">
+              <button class="btn-outline">
+                <i class="fa-regular fa-bookmark"></i> Save Recipe
+              </button>
+              <button class="btn-primary">
+                <i class="fa-solid fa-play"></i> Watch Video
+              </button>
+            </div>
+
+            <!-- COMMENTS -->
+            <section class="section comments-section">
+              <h2>Comments</h2>
+
+              <!-- ADD COMMENT (PEHLE) -->
+              <div class="add-comment">
+                <textarea placeholder="Write your comment..."></textarea>
+                <button>Post Comment</button>
+              </div>
+
+              <!-- COMMENTS LIST (NEECHE, SCROLL NATURALLY) -->
+              <div class="comments-list">
+                <div class="comment">
+                  <div class="avatar">A</div>
+                  <div>
+                    <strong>Ali</strong>
+                    <p>Amazing recipe 🔥 tried it today!</p>
+                  </div>
+                </div>
+
+                <div class="comment">
+                  <div class="avatar">S</div>
+                  <div>
+                    <strong>Sara</strong>
+                    <p>Looks delicious 😍</p>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+          </div>
+        </section>
+            `
+            })
+            document.querySelector('.modal-backdrop').innerHTML = finalrec
+        } catch (error) {
+            console.log(error)
+        }
     }
-    else{
+    else {
         return
     }
 })

@@ -21,6 +21,7 @@ body {
   inset: 0;
   background: rgba(0,0,0,0.35);
   backdrop-filter: blur(15px);
+  display: none;
   z-index: 10;
 }
 
@@ -226,4 +227,27 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 800;
+}
+
+/* INGREDIENTS SCROLL ONLY */
+.ingredients-section {
+  margin-bottom: 40px;
+}
+
+.ingredients-scroll {
+  max-height: 240px; /* yahan control hai */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* smooth premium scrollbar */
+.ingredients-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.ingredients-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), #ffb347);
+  border-radius: 10px;
+}
+.ingredients-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
