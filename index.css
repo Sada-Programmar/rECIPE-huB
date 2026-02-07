@@ -10,12 +10,12 @@ body {
 
 #big-nav {
     width: 100%;
-    height: 110px;
+    height: 80px;
     background-color: #FFF9F1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 30px;
+    padding: 10px 30px;
 }
 
 #logo {
@@ -115,7 +115,7 @@ body {
 }
 
 #bg-1 {
-    height: calc(100vh - 145px);
+    height: calc(100vh - 115px);
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
         url(./assets/bg\ 1.jpg);
     background-color: aqua;
@@ -123,16 +123,57 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: calc(100vh - 145px);
     margin: 0;
+    display: flex;
+    padding-top: 140px;
+    flex-direction: column;
+    align-items: center;
 }
 #noont{
     font-size: 60px;
-    color: antiquewhite;
+    color: rgb(175, 99, 0);
     padding: 40px;
     text-align: center;
 }
+
 #h2-1{
-    font-size: 30px;
+    font-size: 45px;
     color: #FFF9F1;
+    padding: 40px;
+    text-align: center;
+    text-transform: capitalize;
+}
+/* Button Styles */
+.hero-btn {
+    width: 214px;
+  padding: 11px 22px;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif; /* Ya jo bhi aapki font family hai */
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #F2994A; /* Wahi logo wala orange */
+  border: none;
+  border-radius: 8px; /* Smooth corners */
+  cursor: pointer;
+  text-decoration: none;
+  
+  /* Shadow aur Animation */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  /* Spacing */
+  margin-top: 25px;
+}
+
+/* Hover Effect (Jab mouse upar aye) */
+.hero-btn:hover {
+  background-color: #e67e22; /* Thora dark orange */
+  transform: translateY(-3px); /* Halka sa upar uthega */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Click Effect */
+.hero-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }

@@ -33,7 +33,7 @@ signbtn.addEventListener('click', async function () {
                 }
             })
         });
-        if (username1.length != username2.length) {
+         if (username1.length != username2.length) {
             showError('username', 'Username Only in lowercase LETTERS.')
             return
         }

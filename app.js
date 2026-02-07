@@ -1,3 +1,19 @@
+async function hiii() {
+    try {
+        const user = await loginuser()
+        return user
+    } catch (error) {
+        console.log(error, "error aya hai")
+        window.location = "login1.html"
+    }
+}
+async function foo() {
+    const finaldata = await hiii()
+    var username = `${finaldata.firstname} ${finaldata.lastname}`
+    console.log(username)
+    timegeter(username)
+}
+foo()
 function timegeter(name) {
     var date = new Date()
     var time = date.getHours()
@@ -15,7 +31,7 @@ function timegeter(name) {
         var mess = "Good Evening"
     }
     if (time >= 20 || time < 5) {
-        var text =  "Craving something special for dinner?"
+        var text = "Craving something special for dinner?"
         var mess = "Good Night"
     }
     console.log(mess)
@@ -24,21 +40,9 @@ function timegeter(name) {
 }
 
 
-async function hiii() {
-    try {
-        const user = await loginuser()
-        return user
-    } catch (error) {
-        console.log(error, "error aya hai")
-        // window.location = "login1.html"
-    }
-}
-async function foo() {
-    const finaldata = await hiii()
-    var username = `${finaldata.firstname} ${finaldata.lastname}`
-    console.log(username)
-    timegeter(username)
-}
-foo()
+var recipebtn = document.querySelector('.hero-btn')
+recipebtn.addEventListener("click", function () {
+    window.location = 'recipe.html'
+})
 
 import { loginuser } from "./firebase.js"

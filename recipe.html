@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Hub — Premium</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="./recipe.css">
+</head>
+
+<body>
+
+  <!-- Ambient Blur -->
+  <div class="ambient"></div>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">🍽️</div>
+
+      <nav class="menu">
+        <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+        <a class="active"><i class="fa-solid fa-utensils"></i></a>
+        <a><i class="fa-regular fa-bookmark"></i></a>
+        <a><i class="fa-regular fa-user"></i></a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="content">
+
+      <!-- Header -->
+      <header class="header">
+        <div>
+          <p class="sub">Curated for you</p>
+          <h1>Explore <span>Premium</span> Recipes</h1>
+        </div>
+
+        <div class="search">
+          <input type="text" placeholder="Search ingredients, dishes..." />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </header>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="active">Popular</button>
+        <button>Local</button>
+        <button>Quick</button>
+        <button>Desserts</button>
+        <button>Veg</button>
+      </div>
+
+      <!-- Grid -->
+      <section class="grid">
+
+        <!-- Card -->
+        <article class="card">
+          <div class="media">
+            <img src="https://www.themealdb.com/images/media/meals/tkvnav1628771044.jpg">
+            <span class="badge">Chef Pick</span>
+          </div>
+          <div class="info">
+            <h3>Butter Chicken</h3>
+            <div class="meta">
+              <span><i class="fa-solid fa-fire"></i> High Protein</span>
+              <span class="price">$$$</span>
+            </div>
+            <button>View Recipe</button>
+          </div>
+        </article>
+
+        <!-- Duplicate cards as needed -->
+       
+
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="./recipe.js"></script>
+</body>
+
+</html>
